@@ -11,6 +11,13 @@ import {
   CandlestickChartIcon,
   ArrowRightIcon,
   HomeIcon,
+  LineChartIcon,
+  ZapIcon,
+  ArrowUpIcon,
+  TargetIcon,
+  ActivityIcon,
+  TrendingDownIcon,
+  Radar,
 } from 'lucide-react'
 
 export function TradingStrategiesPage() {
@@ -23,6 +30,26 @@ export function TradingStrategiesPage() {
   }
   
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategory)
+
+  // Function to get category-specific icon
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Análisis Técnico':
+        return LineChartIcon
+      case 'Ruptura':
+        return ZapIcon
+      case 'Reversión':
+        return ArrowUpIcon
+      case 'Price Action':
+        return TargetIcon
+      case 'Indicadores':
+        return ActivityIcon
+      case 'Análisis Alternativo':
+        return Radar
+      default:
+        return CandlestickChartIcon
+    }
+  }
 
   const filteredStrategies =
     selectedCategory === 'Todas'
@@ -133,7 +160,10 @@ export function TradingStrategiesPage() {
                 ) : (
                   <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 h-full flex items-center justify-center">
                     <div className="text-blue-400 text-center">
-                      <CandlestickChartIcon className="w-12 h-12 mx-auto mb-2" />
+                      {(() => {
+                        const IconComponent = getCategoryIcon(strategy.category)
+                        return <IconComponent className="w-12 h-12 mx-auto mb-2" />
+                      })()}
                       <p className="text-sm">Imagen no disponible</p>
                     </div>
                   </div>
@@ -143,7 +173,10 @@ export function TradingStrategiesPage() {
               <div className="p-6 flex-grow">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                    <CandlestickChartIcon className="w-6 h-6 text-blue-400" />
+                    {(() => {
+                      const IconComponent = getCategoryIcon(strategy.category)
+                      return <IconComponent className="w-6 h-6 text-blue-400" />
+                    })()}
                   </div>
                   <span className="text-xs font-medium text-slate-400">
                     {strategy.category}

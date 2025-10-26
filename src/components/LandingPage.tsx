@@ -12,6 +12,12 @@ import {
   StarIcon,
   ArrowRightIcon,
   CandlestickChartIcon,
+  LineChartIcon,
+  ZapIcon,
+  ArrowUpIcon,
+  TargetIcon,
+  ActivityIcon,
+  Radar,
 } from 'lucide-react'
 
 export function LandingPage() {
@@ -44,13 +50,19 @@ export function LandingPage() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Análisis Técnico':
-        return BarChart3Icon
+        return LineChartIcon
+      case 'Ruptura':
+        return ZapIcon
+      case 'Reversión':
+        return ArrowUpIcon
       case 'Price Action':
-        return CandlestickChartIcon
+        return TargetIcon
       case 'Indicadores':
-        return TrendingUpIcon
+        return ActivityIcon
+      case 'Análisis Alternativo':
+        return Radar
       default:
-        return BookOpenIcon
+        return CandlestickChartIcon
     }
   }
 
