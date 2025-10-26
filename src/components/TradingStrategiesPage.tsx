@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { strategies, categories } from '../data/data'
 import {
   TrendingUpIcon,
@@ -110,6 +111,35 @@ export function TradingStrategiesPage() {
               onClick={() => router.push(`/strategy/${strategy.id}`)}
               className="bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all cursor-pointer border border-slate-700/50 overflow-hidden group flex flex-col"
             >
+              {/* Strategy Image */}
+              <div className="h-48 relative overflow-hidden">
+                {strategy.images?.thumbnail ? (
+                  <Image
+                    src={`/images/strategies/${strategy.id}/${strategy.images.thumbnail}`}
+                    alt={strategy.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to gradient if image fails to load
+                      const target = e.target as HTMLElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = '<div class="bg-gradient-to-br from-blue-500/20 to-purple-500/20 h-full flex items-center justify-center"><div class="text-blue-400 text-center"><CandlestickChartIcon class="w-12 h-12 mx-auto mb-2" /><p class="text-sm">Imagen no disponible</p></div></div>'
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 h-full flex items-center justify-center">
+                    <div className="text-blue-400 text-center">
+                      <CandlestickChartIcon className="w-12 h-12 mx-auto mb-2" />
+                      <p className="text-sm">Imagen no disponible</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <div className="p-6 flex-grow">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
