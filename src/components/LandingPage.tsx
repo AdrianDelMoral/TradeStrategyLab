@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { strategies, categories } from '../data/data'
 import {
   TrendingUpIcon,
@@ -148,9 +149,30 @@ export function LandingPage() {
                 className="group block"
               >
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all cursor-pointer border border-slate-700/50 overflow-hidden group-hover:border-blue-500/30 transform hover:scale-105">
-                  {/* Image placeholder - será reemplazada por imagen real */}
-                  <div className="h-48 bg-gradient-to-br from-blue-500/20 to-purple-500/20 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Strategy Image */}
+                  <div className="h-48 relative overflow-hidden">
+                    {strategy.images?.thumbnail ? (
+                      <Image
+                        src={`/images/strategies/${strategy.id}/${strategy.images.thumbnail}`}
+                        alt={strategy.title}
+                        width={400}
+                        height={200}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to gradient if image fails to load
+                          const target = e.target as HTMLElement;
+                          target.style.display = 'none';
+                          target.parentElement!.classList.add('bg-gradient-to-br', 'from-blue-500/20', 'to-purple-500/20');
+                          const fallback = target.parentElement!.querySelector('.fallback-content');
+                          if (fallback) fallback.classList.remove('hidden');
+                        }}
+                      />
+                    ) : (
+                      <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 h-full flex items-center justify-center">
+                        <CandlestickChartIcon className="w-16 h-16 text-blue-400/50" />
+                      </div>
+                    )}
+                    <div className="fallback-content hidden absolute inset-0 flex items-center justify-center">
                       <CandlestickChartIcon className="w-16 h-16 text-blue-400/50" />
                     </div>
                     <div className="absolute top-4 right-4">

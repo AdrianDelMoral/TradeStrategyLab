@@ -1,8 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { strategies } from '../data/data'
+import { ImageModal } from './ImageModal'
 import {
   ArrowLeftIcon,
   TrendingUpIcon,
@@ -20,6 +22,23 @@ interface StrategyDetailPageProps {
 export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
   const router = useRouter()
   const strategy = strategies.find((s) => s.id === params.id)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalImageIndex, setModalImageIndex] = useState(0)
+  const [modalImages, setModalImages] = useState<string[]>([])
+
+  // Función para abrir modal con imágenes específicas de una sección
+  const openModal = (images: string[], imageIndex: number) => {
+    const fullImagePaths = images.map(imageName => `/images/strategies/${strategy?.id}/${imageName}`)
+    setModalImages(fullImagePaths)
+    setModalImageIndex(imageIndex)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setModalImageIndex(0)
+    setModalImages([])
+  }
 
   if (!strategy) {
     return (
@@ -138,6 +157,72 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
           </p>
         </div>
 
+        {/* Images Gallery */}
+        {strategy.images && (strategy.images.examples || strategy.images.thumbnail) && (
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-4">Ejemplos Visuales</h2>
+            
+            {/* Thumbnail as main image */}
+            {strategy.images.thumbnail && (
+              <div className="mb-6">
+                <Image
+                  src={`/images/strategies/${strategy.id}/${strategy.images.thumbnail}`}
+                  alt={`${strategy.title} - Imagen principal`}
+                  width={800}
+                  height={400}
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => openModal([strategy.images?.thumbnail].filter(Boolean) as string[], 0)}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
+            
+            {/* Example images grid */}
+            {strategy.images.examples && strategy.images.examples.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {strategy.images.examples.map((imageName, index) => (
+                  <div key={index} className="group">
+                    <Image
+                      src={`/images/strategies/${strategy.id}/${imageName}`}
+                      alt={`${strategy.title} - Ejemplo ${index + 1}`}
+                      width={400}
+                      height={300}
+                      className="w-full h-48 object-cover rounded-lg shadow-md group-hover:shadow-lg transition-shadow cursor-pointer hover:opacity-80"
+                      onClick={() => openModal(strategy.images?.examples || [], index)}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            {/* Diagram if exists */}
+            {strategy.images.diagram && (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold text-white mb-3">Diagrama</h3>
+                <Image
+                  src={`/images/strategies/${strategy.id}/${strategy.images.diagram}`}
+                  alt={`${strategy.title} - Diagrama`}
+                  width={600}
+                  height={400}
+                  className="w-full max-w-xl mx-auto rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => openModal([strategy.images?.diagram].filter(Boolean) as string[], 0)}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
         {/* How It Works */}
         <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
           <h2 className="text-2xl font-bold text-white mb-4">
@@ -215,6 +300,15 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
           </button>
         </div>
       </main>
+
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        images={modalImages}
+        currentIndex={modalImageIndex}
+        strategyTitle={strategy.title}
+      />
     </div>
   )
 }

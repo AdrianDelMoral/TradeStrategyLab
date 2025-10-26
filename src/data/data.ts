@@ -11,8 +11,8 @@ export const strategies: Strategy[] = [
     timeframe: '1H - 4H',
     riskLevel: 'Medio',
     images: {
-      thumbnail: 'image-2.png',
-      examples: ['image-3.png', 'image-4.png', 'image-5.png', 'image-6.png']
+      thumbnail: 'fibonacci-levels.png',
+      examples: ['swing-high-low.png', 'fibonacci-tool.png', 'pullback-level.png', 'buy-entry.png']
     },
     detailedContent: {
       introduction:
@@ -43,9 +43,9 @@ export const strategies: Strategy[] = [
     timeframe: '15M - 1H',
     riskLevel: 'Alto',
     images: {
-      thumbnail: 'image-7.png',
-      examples: ['image-8.png', 'image-9.png', 'image-10.png', 'image-11.png', 'image-12.png'],
-      diagram: 'image-14.png'
+      thumbnail: 'breakout-concept.png',
+      examples: ['sudden-movement.png', 'consolidation.png', 'consolidation-example.png', 'downside-move.png', 'breakout-label.png'],
+      diagram: 'pattern-examples.png'
     },
     detailedContent: {
       introduction:
@@ -81,9 +81,9 @@ export const strategies: Strategy[] = [
     timeframe: '4H - 1D',
     riskLevel: 'Medio',
     images: {
-      thumbnail: 'image-17.png',
-      examples: ['image-18.png', 'image-19.png'],
-      diagram: 'image-20.png'
+      thumbnail: 'reversal-concept.png',
+      examples: ['opposite-direction.png', 'pattern-identification.png'],
+      diagram: 'head-shoulders.png'
     },
     detailedContent: {
       introduction:
@@ -118,9 +118,9 @@ export const strategies: Strategy[] = [
     timeframe: '4H - 1D',
     riskLevel: 'Alto',
     images: {
-      thumbnail: 'image-24.png',
-      examples: ['image-25.png', 'image-26.png', 'image-28.png', 'image-29.png', 'image-30.png', 'image-31.png'],
-      diagram: 'image-27.png'
+      thumbnail: 'wave-theory.png',
+      examples: ['five-waves.png', 'wave-sequence.png', 'wave-4-rule.png', 'wave-example-123.png', 'wave-4-pullback.png', 'buy-entry-wave.png'],
+      diagram: 'wave-2-rule.png'
     },
     detailedContent: {
       introduction:
@@ -155,8 +155,8 @@ export const strategies: Strategy[] = [
     timeframe: '15M - 4H',
     riskLevel: 'Medio',
     images: {
-      thumbnail: 'image-33.png',
-      examples: ['image-34.png', 'image-35.png', 'image-36.png', 'image-37.png', 'image-38.png', 'image-39.png']
+      thumbnail: 'fvg-concept.png',
+      examples: ['imbalance-gap.png', 'wick-placement.png', 'magnet-level.png', 'price-revisit.png']
     },
     detailedContent: {
       introduction:
@@ -186,8 +186,8 @@ export const strategies: Strategy[] = [
     timeframe: '15M - 4H',
     riskLevel: 'Medio',
     images: {
-      thumbnail: 'image-40.png',
-      examples: ['image-41.png', 'image-42.png', 'image-43.png', 'image-44.png', 'image-45.png']
+      thumbnail: 'candlestick-concept.png',
+      examples: ['analyze-shapes.png', 'engulfing-pattern.png', 'engulfing-momentum.png', 'hammer-shooting-star.png', 'doji-pattern.png']
     },
     detailedContent: {
       introduction:
@@ -221,8 +221,8 @@ export const strategies: Strategy[] = [
     timeframe: '1H - 4H',
     riskLevel: 'Bajo',
     images: {
-      thumbnail: 'image-46.png',
-      examples: ['image-47.png', 'image-48.png', 'image-49.png', 'image-50.png', 'image-51.png', 'image-52.png', 'image-53.png']
+      thumbnail: 'heikin-ashi-concept.png',
+      examples: ['replaces-traditional.png', 'to-heikin-ashi.png', 'chart-comparison.png', 'less-noise.png', 'green-uptrend.png', 'red-downtrend.png', 'body-strength.png']
     },
     detailedContent: {
       introduction:
@@ -251,8 +251,8 @@ export const strategies: Strategy[] = [
     timeframe: 'Diario - Semanal',
     riskLevel: 'Bajo',
     images: {
-      thumbnail: 'image-55.png',
-      examples: ['image-56.png', 'image-57.png', 'image-58.png']
+      thumbnail: 'moon-phases-concept.png',
+      examples: ['moon-cycles.png', 'new-moon-bullish.png', 'full-moon-bearish.png']
     },
     detailedContent: {
       introduction:
@@ -280,8 +280,8 @@ export const strategies: Strategy[] = [
     timeframe: 'Variable',
     riskLevel: 'Medio',
     images: {
-      thumbnail: 'image-59.png',
-      examples: ['image-60.png', 'image-61.png', 'image-62.png', 'image-63.png', 'image-64.png', 'image-65.png', 'image-68.png', 'image-69.png']
+      thumbnail: 'renko-concept.png',
+      examples: ['replaces-candlestick.png', 'traditional-chart.png', 'renko-chart.png', 'time-based.png', 'price-based.png', 'percent-change.png', 'green-uptrend.png', 'red-downtrend.png']
     },
     detailedContent: {
       introduction:
@@ -311,9 +311,9 @@ export const strategies: Strategy[] = [
     timeframe: '4H - 1D',
     riskLevel: 'Alto',
     images: {
-      thumbnail: 'image-70.png',
-      examples: ['image-71.png', 'image-72.png', 'image-76.png', 'image-77.png', 'image-78.png', 'image-79.png'],
-      diagram: 'image-80.png'
+      thumbnail: 'harmonic-concept.png',
+      examples: ['fibonacci-shapes.png', 'bat-pattern.png', 'real-chart.png', 'four-movements.png', 'pattern-tool.png', 'take-position.png'],
+      diagram: 'multiple-patterns.png'
     },
     detailedContent: {
       introduction:
@@ -351,8 +351,8 @@ export const strategies: Strategy[] = [
     timeframe: 'Todos',
     riskLevel: 'Bajo',
     images: {
-      thumbnail: 'image-81.png',
-      examples: ['image-82.png', 'image-83.png', 'image-84.png']
+      thumbnail: 'key-levels.png',
+      examples: ['bounce-future.png', 'support-buy.png', 'resistance-sell.png']
     },
     detailedContent: {
       introduction:
@@ -466,6 +466,10 @@ export const strategies: Strategy[] = [
     difficulty: 'Principiante',
     timeframe: '1H - 4H',
     riskLevel: 'Medio',
+    images: {
+      thumbnail: 'momentum-concept.png',
+      examples: ['macd-indicator.png', 'macd-crossover.png', 'moving-average.png', 'above-bullish.png', 'parabolic-sar.png', 'supertrend.png']
+    },
     detailedContent: {
       introduction:
         'Los indicadores de momentum miden la dirección y fuerza de una tendencia. Son más efectivos en mercados con tendencia.',
