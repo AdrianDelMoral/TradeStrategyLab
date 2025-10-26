@@ -185,28 +185,7 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
                 />
               </div>
             )}
-            
-            {/* Example images grid */}
-            {strategy.images.examples && strategy.images.examples.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {strategy.images.examples.map((imageName, index) => (
-                  <div key={index} className="group">
-                    <Image
-                      src={`/images/strategies/${strategy.id}/${imageName}`}
-                      alt={`${strategy.title} - Ejemplo ${index + 1}`}
-                      width={400}
-                      height={300}
-                      className="w-full h-48 object-cover rounded-lg shadow-md group-hover:shadow-lg transition-shadow cursor-pointer hover:opacity-80"
-                      onClick={() => openModal(strategy.images?.examples || [], index)}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+
             
             {/* Diagram if exists */}
             {strategy.images.diagram && (
@@ -234,13 +213,34 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
           <h2 className="text-2xl font-bold text-white mb-4">
             ¿Cómo Funciona?
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-6">
             {strategy.detailedContent.howItWorks.map((step, index) => (
-              <div key={index} className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-semibold">
-                  {index + 1}
+              <div key={index} className="space-y-4">
+                {/* Step text */}
+                <div className="flex gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-semibold">
+                    {index + 1}
+                  </div>
+                  <p className="text-slate-300 pt-1">{step}</p>
                 </div>
-                <p className="text-slate-300 pt-1">{step}</p>
+                
+                {/* Step image */}
+                {strategy.images?.examples && strategy.images.examples[index] && (
+                  <div className="ml-11 max-w-md">
+                    <Image
+                      src={`/images/strategies/${strategy.id}/${strategy.images.examples[index]}`}
+                      alt={`${strategy.title} - Paso ${index + 1}`}
+                      width={400}
+                      height={300}
+                      className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer hover:opacity-80"
+                      onClick={() => openModal(strategy.images?.examples || [], index)}
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
