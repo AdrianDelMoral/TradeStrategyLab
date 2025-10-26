@@ -28,7 +28,13 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
 
   // Función para abrir modal con imágenes específicas de una sección
   const openModal = (images: string[], imageIndex: number) => {
-    const fullImagePaths = images.map(imageName => `/images/strategies/${strategy?.id}/${imageName}`)
+    const fullImagePaths = images.map(imageName => {
+      // Check if imageName already contains full path
+      if (imageName.startsWith('/images/')) {
+        return imageName;
+      }
+      return `/images/strategies/${strategy?.id}/${imageName}`;
+    });
     setModalImages(fullImagePaths)
     setModalImageIndex(imageIndex)
     setIsModalOpen(true)
