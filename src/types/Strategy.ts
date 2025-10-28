@@ -1,6 +1,7 @@
 export interface Strategy {
   id: string
   title: string
+  mainPicture: string
   category: string
   description: string
   difficulty: 'Principiante' | 'Intermedio' | 'Avanzado'

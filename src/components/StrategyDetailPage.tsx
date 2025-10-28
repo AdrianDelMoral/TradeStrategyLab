@@ -13,6 +13,33 @@ import {
   BookOpenIcon,
 } from 'lucide-react'
 
+// Function to get main example images for each strategy
+const getMainExampleImages = (strategyId: string): string[] => {
+  const imageMap: { [key: string]: string[] } = {
+    'fibonacci-retracement': ['fibonacci-principal-ejemplo.png'],
+    'breakout-patterns': ['breakout-principal-ejemplo.png'],
+    'reversal-patterns': ['reversal-principal-ejemplo.png'],
+    'elliott-wave': ['elliott-wave-principal-ejemplo.png'],
+    'fair-value-gap': ['fvg-principal-ejemplo.png'],
+    'candlestick-patterns': ['candlestick-principal-ejemplo.png'],
+    'heikin-ashi': ['heikin-ashi-principal-ejemplo.png'],
+    'moon-phases': ['moon-phases-principal-ejemplo.png'],
+    'renko': ['renko-principal-ejemplo-1.png', 'renko-principal-ejemplo-2.png'],
+    'harmonic-patterns': ['harmonic-patterns-principal-ejemplo.png'],
+    'support-resistance': ['support-resistance-principal-ejemplo-1.png', 'support-resistance-principal-ejemplo-2.png'],
+    'dynamic-support-resistance': ['dynamic-sr-principal-ejemplo.png'],
+    'trend-lines': ['trend-lines-principal-ejemplo.png'],
+    'momentum-indicators': ['momentum-indicators-principal-ejemplo.png'],
+    'oscillators': ['oscillators-principal-ejemplo.png'],
+    'divergence': ['divergence-principal-ejemplo.png'],
+    'volume': ['volume-principal-ejemplo.png'],
+    'market-structure': ['market-structure-principal-ejemplo.png'],
+    'choch': ['choch-principal-ejemplo.png'],
+  }
+  
+  return imageMap[strategyId] || []
+}
+
 interface StrategyDetailPageProps {
   params: {
     id: string
@@ -158,26 +185,23 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
             <BookOpenIcon className="w-6 h-6 text-blue-400" />
             <h2 className="text-2xl font-bold text-white">Introducción</h2>
           </div>
-          <p className="text-slate-300 leading-relaxed">
-            {strategy.detailedContent.introduction}
-          </p>
-        </div>
-
-        {/* Images Gallery */}
-        {strategy.images && (strategy.images.examples || strategy.images.thumbnail) && (
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
-            <h2 className="text-2xl font-bold text-white mb-4">Ejemplos Visuales</h2>
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <div className="flex-1">
+              <p className="text-slate-300 leading-relaxed">
+                {strategy.detailedContent.introduction}
+              </p>
+            </div>
             
-            {/* Thumbnail as main image */}
-            {strategy.images.thumbnail && (
-              <div className="mb-6">
+            {/* Concept Image */}
+            {strategy.mainPicture && (
+              <div className="md:w-80 flex-shrink-0">
                 <Image
-                  src={`/images/strategies/${strategy.id}/${strategy.images.thumbnail}`}
-                  alt={`${strategy.title} - Imagen principal`}
-                  width={800}
-                  height={400}
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={() => openModal([strategy.images?.thumbnail].filter(Boolean) as string[], 0)}
+                  src={`/images/strategies/${strategy.id}/${strategy.mainPicture}`}
+                  alt={`${strategy.title} - Concepto`}
+                  width={320}
+                  height={200}
+                  className="w-full rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
+                  onClick={() => openModal([strategy.mainPicture].filter(Boolean) as string[], 0)}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
@@ -185,18 +209,45 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
                 />
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Images Gallery */}
+        {(strategy.images && (strategy.images.examples || strategy.images.thumbnail)) && (
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
+            <h2 className="text-2xl font-bold text-white mb-4">Ejemplos Visuales</h2>
+            
+            {/* Principal Example Images - At the beginning */}
+            <div className="mb-8">
+              {getMainExampleImages(strategy.id).map((imageName, index) => (
+                <div key={index} className="mb-6">
+                  <Image
+                    src={`/images/strategies/${strategy.id}/${imageName}`}
+                    alt={`${strategy.title} - Ejemplo principal ${index + 1}`}
+                    width={800}
+                    height={400}
+                    className="w-full max-w-2xl mx-auto rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => openModal([imageName], 0)}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
 
             
-            {/* Diagram if exists */}
-            {strategy.images.diagram && (
-              <div className="mt-6">
-                <h3 className="text-lg font-semibold text-white mb-3">Diagrama</h3>
+            {/* Diagram */}
+            {strategy.images?.diagram && (
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold text-white mb-2">Diagrama</h3>
                 <Image
                   src={`/images/strategies/${strategy.id}/${strategy.images.diagram}`}
                   alt={`${strategy.title} - Diagrama`}
-                  width={600}
+                  width={800}
                   height={400}
-                  className="w-full max-w-xl mx-auto rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => openModal([strategy.images?.diagram].filter(Boolean) as string[], 0)}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;

@@ -6,8 +6,6 @@ import Image from 'next/image'
 import { strategies, categories } from '../data/data'
 import {
   TrendingUpIcon,
-  BookOpenIcon,
-  BarChart3Icon,
   GraduationCapIcon,
   StarIcon,
   ArrowRightIcon,
@@ -163,9 +161,9 @@ export function LandingPage() {
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all cursor-pointer border border-slate-700/50 overflow-hidden group-hover:border-blue-500/30 transform hover:scale-105">
                   {/* Strategy Image */}
                   <div className="h-48 relative overflow-hidden">
-                    {strategy.images?.thumbnail ? (
+                    {strategy.mainPicture ? (
                       <Image
-                        src={`/images/strategies/${strategy.id}/${strategy.images.thumbnail}`}
+                        src={`/images/strategies/${strategy.id}/${strategy.mainPicture}`}
                         alt={strategy.title}
                         width={400}
                         height={200}

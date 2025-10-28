@@ -4,6 +4,7 @@ export const strategies: Strategy[] = [
   {
     id: 'fibonacci-retracement',
     title: 'Retroceso de Fibonacci',
+    mainPicture: 'fibonacci-levels.png',
     category: 'Análisis Técnico',
     description:
       'Herramienta que muestra líneas horizontales basadas en números de Fibonacci para identificar niveles clave de soporte y resistencia.',
@@ -11,19 +12,21 @@ export const strategies: Strategy[] = [
     timeframe: '1H - 4H',
     riskLevel: 'Medio',
     images: {
-      thumbnail: 'fibonacci-levels.png',
-      examples: ['swing-high-low.png', 'fibonacci-tool.png', 'pullback-level.png', 'buy-entry.png']
+      thumbnail: 'swing-high-low.png',
+      examples: [
+        
+        'fibonacci-tool.png',
+        'pullback-level.png',
+        'buy-entry.png'
+      ],
     },
     detailedContent: {
       introduction:
         'Es una herramienta que muestra líneas horizontales basadas en números de Fibonacci. Estas líneas pueden ser usadas como niveles clave de soporte y resistencia.',
       howItWorks: [
-        'Primero identifica un swing low y swing high en el gráfico',
-        'Arrastra la herramienta desde el swing low hasta el swing high',
-        'Espera a que el precio haga un retroceso a uno de estos niveles',
-        'Idealmente el nivel 0.382 de Fibonacci, ya que es el nivel más común',
-        'Si el precio toca ese nivel, podría ser una buena entrada de compra',
-        'Ten en cuenta que el precio también puede revertir desde otros niveles de Fibonacci'
+        'Primero identifica un swing low y swing high en el gráfico. Y arrastrar la herramienta desde el swing low (mínimo que haya habido en la tendencia) hasta el swing high (máximo que haya habido en la tendencia)',
+        'Espera a que el precio haga un retroceso a uno de estos niveles. Idealmente el nivel 0.382 de Fibonacci, ya que es el nivel más común',
+        'Si el precio toca ese nivel, podría ser una buena entrada de compra. Ten en cuenta que el precio también puede revertir desde otros niveles de Fibonacci'
       ],
       keyPoints: [
         'El nivel 0.382 es el más común donde el precio tiende a revertir',
@@ -36,6 +39,7 @@ export const strategies: Strategy[] = [
   {
     id: 'breakout-patterns',
     title: 'Patrones de Ruptura',
+    mainPicture: 'breakout-concept.png',
     category: 'Ruptura',
     description:
       'Movimiento súbito y significativo del precio en una dirección, generalmente después de un período de consolidación.',
@@ -74,6 +78,7 @@ export const strategies: Strategy[] = [
   {
     id: 'reversal-patterns',
     title: 'Patrones de Reversión',
+    mainPicture: 'reversal-concept.png',
     category: 'Reversión',
     description:
       'Patrones que indican cuando el precio puede moverse en dirección opuesta a la tendencia actual.',
@@ -111,6 +116,7 @@ export const strategies: Strategy[] = [
   {
     id: 'elliott-wave',
     title: 'Ondas de Elliott',
+    mainPicture: 'wave-theory.png',
     category: 'Análisis Técnico',
     description:
       'Teoría que sugiere que las tendencias del mercado se mueven en series de cinco ondas antes de revertir.',
@@ -148,6 +154,7 @@ export const strategies: Strategy[] = [
   {
     id: 'fair-value-gap',
     title: 'Fair Value Gap (FVG)',
+    mainPicture: 'fvg-concept.png',
     category: 'Price Action',
     description:
       'Gaps significativos en el precio causados por desequilibrios de compra o venta que actúan como imanes de precio.',
@@ -179,6 +186,7 @@ export const strategies: Strategy[] = [
   {
     id: 'candlestick-patterns',
     title: 'Patrones de Velas',
+    mainPicture: 'candlestick-concept.png',
     category: 'Price Action',
     description:
       'Técnica de análisis basada en formas específicas de velas para predecir movimientos futuros del precio.',
@@ -214,6 +222,7 @@ export const strategies: Strategy[] = [
   {
     id: 'heikin-ashi',
     title: 'Heikin Ashi',
+    mainPicture: 'heikin-ashi-concept.png',
     category: 'Indicadores',
     description:
       'Indicador que reemplaza las velas tradicionales para filtrar ruido y visualizar tendencias más claramente.',
@@ -244,6 +253,7 @@ export const strategies: Strategy[] = [
   {
     id: 'moon-phases',
     title: 'Fases Lunares',
+    mainPicture: 'moon-phases-concept.png',
     category: 'Análisis Alternativo',
     description:
       'Concepto que utiliza ciclos lunares para temporizar el mercado basándose en correlaciones con emociones humanas.',
@@ -273,6 +283,7 @@ export const strategies: Strategy[] = [
   {
     id: 'renko',
     title: 'Gráficos Renko',
+    mainPicture: 'renko-concept.png',
     category: 'Indicadores',
     description:
       'Tipo de gráfico que forma bloques basados en cambios de precio en lugar de tiempo, filtrando ruido del mercado.',
@@ -304,6 +315,7 @@ export const strategies: Strategy[] = [
   {
     id: 'harmonic-patterns',
     title: 'Patrones Armónicos',
+    mainPicture: 'harmonic-concept.png',
     category: 'Análisis Técnico',
     description:
       'Patrones avanzados de precio que siguen formas específicas basadas en números de Fibonacci.',
@@ -344,6 +356,7 @@ export const strategies: Strategy[] = [
   {
     id: 'support-resistance',
     title: 'Soporte y Resistencia',
+    mainPicture: 'support-resistance-concept.png',
     category: 'Análisis Técnico',
     description:
       'Niveles clave horizontales donde el precio ha rebotado en el pasado y podría hacerlo nuevamente.',
@@ -374,6 +387,7 @@ export const strategies: Strategy[] = [
   {
     id: 'dynamic-support-resistance',
     title: 'Soporte y Resistencia Dinámica',
+    mainPicture: 'dynamic-concept.png',
     category: 'Indicadores',
     description:
       'Niveles clave que se mueven con el precio usando indicadores como medias móviles.',
@@ -400,6 +414,7 @@ export const strategies: Strategy[] = [
   {
     id: 'trend-lines',
     title: 'Líneas de Tendencia',
+    mainPicture: 'trend-lines-concept.png',
     category: 'Análisis Técnico',
     description:
       'Niveles clave que se forman diagonalmente durante mercados con tendencia.',
@@ -427,6 +442,7 @@ export const strategies: Strategy[] = [
   {
     id: 'gann-angles',
     title: 'Ángulos de Gann',
+    mainPicture: 'gann-concept.png',
     category: 'Análisis Técnico',
     description:
       'Herramienta que muestra múltiples líneas en diferentes ángulos para medir la fuerza de la tendencia.',
@@ -460,6 +476,7 @@ export const strategies: Strategy[] = [
   {
     id: 'momentum-indicators',
     title: 'Indicadores de Momentum',
+    mainPicture: 'momentum-concept.png',
     category: 'Indicadores',
     description:
       'Indicadores que miden la dirección y fuerza de una tendencia, efectivos en mercados con tendencia.',
@@ -496,6 +513,7 @@ export const strategies: Strategy[] = [
   {
     id: 'oscillators',
     title: 'Osciladores',
+    mainPicture: 'oscillators-concept.png',
     category: 'Indicadores',
     description:
       'Indicadores que muestran la fuerza relativa del precio, efectivos en mercados laterales.',
@@ -526,6 +544,7 @@ export const strategies: Strategy[] = [
   {
     id: 'divergence',
     title: 'Divergencias',
+    mainPicture: 'divergence-concept.png',
     category: 'Análisis Técnico',
     description:
       'Ocurre cuando un indicador muestra señal opuesta al movimiento real del precio, indicando posible reversión.',
@@ -552,6 +571,7 @@ export const strategies: Strategy[] = [
   {
     id: 'volume',
     title: 'Indicadores de Volumen',
+    mainPicture: 'volume-concept.png',
     category: 'Indicadores',
     description:
       'Indicadores que muestran la fuerza detrás del movimiento del precio rastreando el volumen de operaciones.',
@@ -583,6 +603,7 @@ export const strategies: Strategy[] = [
   {
     id: 'supply-demand',
     title: 'Oferta y Demanda',
+    mainPicture: 'supply-demand-concept.png',
     category: 'Price Action',
     description:
       'Zonas donde han ocurrido movimientos significativos de precio, también conocidas como Order Blocks.',
@@ -610,6 +631,7 @@ export const strategies: Strategy[] = [
   {
     id: 'market-structure',
     title: 'Estructura de Mercado',
+    mainPicture: 'market-structure-concept.png',
     category: 'Price Action',
     description:
       'Análisis del comportamiento, condición y flujo del mercado mediante máximos y mínimos.',
@@ -636,6 +658,7 @@ export const strategies: Strategy[] = [
   {
     id: 'bos',
     title: 'Break of Structure (BOS)',
+    mainPicture: 'bos-concept.png',
     category: 'Price Action',
     description:
       'Cuando el precio rompe el pico anterior durante una tendencia, confirmando continuación.',
@@ -662,6 +685,7 @@ export const strategies: Strategy[] = [
   {
     id: 'choch',
     title: 'Change of Character (CHoCH)',
+    mainPicture: 'change-character.png',
     category: 'Price Action',
     description:
       'Cuando el precio rompe la estructura anterior durante una tendencia, señalando posible reversión.',

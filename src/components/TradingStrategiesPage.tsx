@@ -16,7 +16,6 @@ import {
   ArrowUpIcon,
   TargetIcon,
   ActivityIcon,
-  TrendingDownIcon,
   Radar,
 } from 'lucide-react'
 
@@ -140,9 +139,9 @@ export function TradingStrategiesPage() {
             >
               {/* Strategy Image */}
               <div className="h-48 relative overflow-hidden">
-                {strategy.images?.thumbnail ? (
+                {strategy.mainPicture ? (
                   <Image
-                    src={`/images/strategies/${strategy.id}/${strategy.images.thumbnail}`}
+                    src={`/images/strategies/${strategy.id}/${strategy.mainPicture}`}
                     alt={strategy.title}
                     width={400}
                     height={200}
