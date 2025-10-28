@@ -194,7 +194,7 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
             
             {/* Concept Image */}
             {strategy.mainPicture && (
-              <div className="md:w-80 flex-shrink-0">
+              <div className="md:w-80 shrink-0">
                 <Image
                   src={`/images/strategies/${strategy.id}/${strategy.mainPicture}`}
                   alt={`${strategy.title} - Concepto`}
