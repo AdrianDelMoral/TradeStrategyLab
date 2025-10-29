@@ -47,12 +47,6 @@ const getHowItWorksImages = (strategyId: string): string[] => {
       'magnet-level.png',
       'price-revisit.png'
     ],
-    'candlestick-patterns': [
-      'analyze-shapes.png',
-      'engulfing-pattern.png',
-      'hammer-shooting-star.png',
-      'doji-pattern.png'
-    ],
     'heikin-ashi': [
       'green-uptrend.png',
       'red-downtrend.png',
@@ -117,10 +111,9 @@ const getExampleImage = (strategyId: string, exampleText: string): string | null
       'Triple Techo/Suelo': 'triple-pattern.png'
     },
     'candlestick-patterns': {
-      'Martillo/Hombre Colgado': 'hammer-hanging.png',
-      'Envolvente Alcista/Bajista': 'engulfing-patterns.png',
-      'Doji': 'doji-pattern.png',
-      'Estrella Fugaz': 'shooting-star.png'
+      'Patrones Envolventes: Indican un fuerte impulso hacia la dirección de la vela envolvente.': 'engulfing-momentum.png',
+      'Los patrones "Martillo" y "Estrella del Amanecer": Indican rechazo, como lo demuestra la mecha larga en uno de los lados.': 'hammer-shooting-star.png',
+      'Los Patrones Doji: Indican neutralidad en el mercado': 'doji-pattern.png'
     },
     'harmonic-patterns': {
       'Patrón Gartley': 'gartley-example.png',
@@ -137,7 +130,7 @@ const getExampleImage = (strategyId: string, exampleText: string): string | null
       'Gap Alcista': 'bullish-gap.png',
       'Gap Bajista': 'bearish-gap.png',
       'Relleno de Gap': 'gap-fill.png'
-    }
+    },
     // Otras estrategias retornarán null por defecto
   }
   
@@ -205,6 +198,9 @@ const getMainExampleImages = (strategyId: string): string[] => {
     ],
     'choch': [
       'higher-highs-lows.png'
+    ],
+    'bos': [
+      'break-previous-peak.png'
     ],
   }
   

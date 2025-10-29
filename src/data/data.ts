@@ -201,21 +201,25 @@ export const strategies: Strategy[] = [
     riskLevel: 'Medio',
     images: {
       thumbnail: 'candlestick-concept.png',
-      examples: ['analyze-shapes.png', 'engulfing-pattern.png', 'engulfing-momentum.png', 'hammer-shooting-star.png', 'doji-pattern.png']
+      examples: [
+        'engulfing-momentum.png',
+        'hammer-shooting-star.png',
+        'doji-pattern.png',
+      ]
     },
     detailedContent: {
       introduction:
-        'Es una técnica que los traders usan para analizar movimientos futuros del precio observando formas específicas de velas.',
+        'Es una técnica que utilizan los Traders para analizar los movimientos futuros de los precios observando formas específicas de velas japonesas. Al identificar estos patrones, los traders pueden anticipar posibles reversiones o continuaciones de la tendencia.',
       howItWorks: [
-        'Identificar formaciones específicas de velas',
-        'Analizar el contexto del mercado',
-        'Esperar confirmación en vela siguiente',
-        'Entrar en dirección del patrón identificado',
+        'Hay que identificar formaciones específicas de velas',
+        'Posteriormente, se debe analizar el contexto del mercado',
+        'Esperar la confirmación en la vela siguiente',
+        'Entrar en la dirección del patrón identificado',
       ],
       examples: [
-        'Patrones Envolventes: señalan momentum fuerte hacia la dirección de la vela envolvente',
-        'Patrones Martillo y Estrella Fugaz: indican rechazo como muestra la mecha larga en un lado',
-        'Patrones Doji: señalan neutralidad en el mercado',
+        'Patrones Envolventes: Indican un fuerte impulso hacia la dirección de la vela envolvente.',
+        'Los patrones "Martillo" y "Estrella del Amanecer": Indican rechazo, como lo demuestra la mecha larga en uno de los lados.',
+        'Los Patrones Doji: Indican neutralidad en el mercado',
       ],
       keyPoints: [
         'Los patrones de velas notables incluyen varios tipos',
@@ -671,14 +675,17 @@ export const strategies: Strategy[] = [
     difficulty: 'Intermedio',
     timeframe: '15M - 4H',
     riskLevel: 'Medio',
+    images: {
+      thumbnail: 'break-previous-peak.png',
+    },
     detailedContent: {
       introduction:
-        'BOS ocurre cuando el precio rompe el pico de precio anterior durante una tendencia.',
+        'BOS(Break Of Structure / Ruptura de Estructura) ocurre cuando el precio rompe el máximo anterior durante una tendencia, por ejemplo, si el precio forma máximos y mínimos más altos, esta ruptura de los máximos anteriores se denomina Ruptura de Estructura.',
       howItWorks: [
-        'En tendencia alcista: precio hace máximos más altos y mínimos más altos',
-        'Romper el máximo anterior = BOS alcista',
-        'En tendencia bajista: precio hace máximos más bajos y mínimos más bajos',
+        'En tendencia bajista es cuando el precio hace máximos más bajos y mínimos más bajos.',
         'Romper el mínimo anterior = BOS bajista',
+        'En tendencia alcista es cuando el precio hace máximos más altos y mínimos más altos.',
+        'Romper el máximo anterior = BOS alcista',
       ],
       keyPoints: [
         'Confirma continuación de tendencia',
