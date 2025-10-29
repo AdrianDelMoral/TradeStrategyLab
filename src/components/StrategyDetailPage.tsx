@@ -147,25 +147,65 @@ const getExampleImage = (strategyId: string, exampleText: string): string | null
 // Function to get main example images for each strategy
 const getMainExampleImages = (strategyId: string): string[] => {
   const imageMap: { [key: string]: string[] } = {
-    'fibonacci-retracement': ['fibonacci-principal-ejemplo.png'],
-    'breakout-patterns': ['breakout-principal-ejemplo.png'],
-    'reversal-patterns': ['reversal-principal-ejemplo.png'],
-    'elliott-wave': ['elliott-wave-principal-ejemplo.png'],
-    'fair-value-gap': ['fvg-principal-ejemplo.png'],
-    'candlestick-patterns': ['candlestick-principal-ejemplo.png'],
-    'heikin-ashi': ['heikin-ashi-principal-ejemplo.png'],
-    'moon-phases': ['moon-phases-principal-ejemplo.png'],
-    'renko': ['renko-principal-ejemplo-1.png', 'renko-principal-ejemplo-2.png'],
-    'harmonic-patterns': ['harmonic-patterns-principal-ejemplo.png'],
-    'support-resistance': ['support-resistance-principal-ejemplo-1.png', 'support-resistance-principal-ejemplo-2.png'],
-    'dynamic-support-resistance': ['dynamic-sr-principal-ejemplo.png'],
-    'trend-lines': ['trend-lines-principal-ejemplo.png'],
-    'momentum-indicators': ['momentum-indicators-principal-ejemplo.png'],
-    'oscillators': ['oscillators-principal-ejemplo.png'],
-    'divergence': ['divergence-principal-ejemplo.png'],
-    'volume': ['volume-principal-ejemplo.png'],
-    'market-structure': ['market-structure-principal-ejemplo.png'],
-    'choch': ['choch-principal-ejemplo.png'],
+    'fibonacci-retracement': [
+      'fibonacci-principal-ejemplo.png'
+    ],
+    'breakout-patterns': [
+      'breakout-principal-ejemplo.png'
+    ],
+    'reversal-patterns': [
+      'reversal-principal-ejemplo.png'
+    ],
+    'elliott-wave': [
+      'elliott-wave-principal-ejemplo.png'
+    ],
+    'fair-value-gap': [
+      'fvg-principal-ejemplo.png'
+    ],
+    'candlestick-patterns': [
+      'candlestick-principal-ejemplo.png'
+    ],
+    'heikin-ashi': [
+      'heikin-ashi-principal-ejemplo.png'
+    ],
+    'moon-phases': [
+      'moon-phases-principal-ejemplo.png'
+    ],
+    'renko': [
+      'renko-principal-ejemplo-1.png',
+      'renko-principal-ejemplo-2.png'
+    ],
+    'harmonic-patterns': [
+      'harmonic-patterns-principal-ejemplo.png'
+    ],
+    'support-resistance': [
+      'support-resistance-principal-ejemplo-1.png',
+      'support-resistance-principal-ejemplo-2.png'
+    ],
+    'dynamic-support-resistance': [
+      'dynamic-sr-principal-ejemplo.png'
+    ],
+    'trend-lines': [
+      'trend-lines-principal-ejemplo.png'
+    ],
+    'momentum-indicators': [
+      'momentum-indicators-principal-ejemplo.png'
+    ],
+    'oscillators': [
+      'oscillators-principal-ejemplo.png'
+    ],
+    'divergence': [
+      'divergence-principal-ejemplo.png'
+    ],
+    'volume': [
+      'volume-principal-ejemplo.png'
+    ],
+    'market-structure': [
+      'market-structure-principal-ejemplo.png'
+    ],
+    'choch': [
+      'higher-highs-lows.png'
+    ],
   }
   
   return imageMap[strategyId] || []
