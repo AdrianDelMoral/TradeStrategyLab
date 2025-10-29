@@ -14,7 +14,7 @@ export const strategies: Strategy[] = [
     images: {
       thumbnail: 'swing-high-low.png',
       examples: [
-        
+        'fibonacci-principal-ejemplo.png',
         'fibonacci-tool.png',
         'pullback-level.png',
         'buy-entry.png'
@@ -22,11 +22,13 @@ export const strategies: Strategy[] = [
     },
     detailedContent: {
       introduction:
-        'Es una herramienta que muestra líneas horizontales basadas en números de Fibonacci. Estas líneas pueden ser usadas como niveles clave de soporte y resistencia.',
+        'Es una herramienta que muestra líneas horizontales basadas en los números de Fibonacci. Estas líneas pueden ser usadas como niveles clave de soporte y resistencia. Y también para identificar posibles puntos de entrada en una tendencia existente.',
       howItWorks: [
-        'Primero identifica un swing low y swing high en el gráfico. Y arrastrar la herramienta desde el swing low (mínimo que haya habido en la tendencia) hasta el swing high (máximo que haya habido en la tendencia)',
-        'Espera a que el precio haga un retroceso a uno de estos niveles. Idealmente el nivel 0.382 de Fibonacci, ya que es el nivel más común',
-        'Si el precio toca ese nivel, podría ser una buena entrada de compra. Ten en cuenta que el precio también puede revertir desde otros niveles de Fibonacci'
+        'Es una herramienta que muestra líneas horizontales basadas en los números de Fibonacci.',
+        'Estas líneas pueden utilizarse como niveles clave de soporte y resistencia. Para utilizar la herramienta de retroceso de Fibonacci. Primero, identifica un mínimo y un máximo en un gráfico y a continuación, arrastra la herramienta desde el mínimo hasta el máximo.',
+        'A continuación, espera a que el precio retroceda hasta uno de estos niveles, idealmente el nivel de Fibonacci 0,382, ya que es el nivel más común.',
+        'Cuando el precio tiende a revertirse desde ese nivel, si el precio alcanza ese nivel, podría ser una buena oportunidad de compra, pero hay que tener en cuenta que el precio también podría revertirse desde otros niveles de Fibonacci.'
+
       ],
       keyPoints: [
         'El nivel 0.382 es el más común donde el precio tiende a revertir',
@@ -42,36 +44,40 @@ export const strategies: Strategy[] = [
     mainPicture: 'breakout-concept.png',
     category: 'Ruptura',
     description:
-      'Movimiento súbito y significativo del precio en una dirección, generalmente después de un período de consolidación.',
+      'Movimiento repentino y significativo del precio en una dirección, generalmente después de un período de consolidación.',
     difficulty: 'Intermedio',
     timeframe: '15M - 1H',
     riskLevel: 'Alto',
     images: {
       thumbnail: 'breakout-concept.png',
-      examples: ['sudden-movement.png', 'consolidation.png', 'consolidation-example.png', 'downside-move.png', 'breakout-label.png'],
-      diagram: 'pattern-examples.png'
+      examples: [
+        'breakout-principal-ejemplo.png',
+        'consolidation.png',
+        'consolidation-example.png',
+        'breakout-label.png',
+      ],
+      diagram: 'traders-guide.png'
     },
     detailedContent: {
       introduction:
-        'Es cuando el precio hace un movimiento súbito y significativo hacia una dirección. Esto usualmente se forma después de que el mercado hace un período de consolidación.',
+        'Los patrones de ruptura en trading indican movimientos repentinos del precio tras períodos de consolidación. Estos patrones son cruciales para anticipar movimientos significativos en el mercado.',
       howItWorks: [
-        'El precio consolida en un rango específico',
-        'Luego se mueve bruscamente hacia una dirección (breakout)',
-        'Los traders pueden usar patrones específicos como guía para identificar breakouts antes de que ocurran',
-        'Se confirma la dirección del breakout',
-        'Entrada cuando se confirma la ruptura',
+        'Es cuando el precio hace un movimiento repentino y significativo hacia una dirección.',
+        'Esto generalmente se forma después de que el mercado hace un período de consolidación.',
+        'Por ejemplo: aquí podemos ver que el precio se está consolidando. Entonces, de repente, se desplaza bruscamente hacia abajo.',
+        'Esto se denomina Ruptura.',
       ],
       examples: [
+        'Banderas',
         'Triángulos (ascendente, descendente, simétrico)',
-        'Banderas y banderines',
         'Rectángulos',
         'Cuñas',
       ],
       keyPoints: [
         'Para aprovechar esto, los traders usan patrones específicos como guía',
-        'Los patrones más notables de ruptura incluyen triángulos, banderas y rectángulos',
-        'Esperar confirmación del breakout con volumen',
-        'Los falsos breakouts son comunes',
+        'Los patrones más notables de ruptura incluyen triángulos, banderas, patrones de consolidación y rectángulos',
+        'Esperar confirmación de rotura con volumen',
+        'Las falsas roturas son comunes',
       ],
     },
   },
@@ -685,21 +691,28 @@ export const strategies: Strategy[] = [
   {
     id: 'choch',
     title: 'Change of Character (CHoCH)',
-    mainPicture: 'change-character.png',
+    mainPicture: 'CHoCH-concept.png',
     category: 'Price Action',
     description:
       'Cuando el precio rompe la estructura anterior durante una tendencia, señalando posible reversión.',
     difficulty: 'Intermedio',
     timeframe: '15M - 4H',
     riskLevel: 'Medio',
+    images: {
+      thumbnail: 'higher-highs-lows.png',
+      examples: [
+        'choch-principal-ejemplo.png',
+        'higher-highs-lows.png',
+        'change-character.png'
+      ]
+    },
     detailedContent: {
       introduction:
         'CHoCH ocurre cuando el precio rompe la estructura anterior durante una tendencia, a menudo señalando una reversión.',
       howItWorks: [
-        'En tendencia alcista: precio hace máximos más altos y mínimos más altos',
-        'Si rompe el mínimo anterior formando mínimos más bajos = CHoCH',
-        'Señala posible cambio de tendencia alcista a bajista',
-        'Lo opuesto aplica para tendencias bajistas',
+        'Se produce cuando el precio rompe la estructura anterior durante una tendencia, lo que a menudo indica un cambio de tendencia con respecto a la tendencia actual.',
+        'Por ejemplo, si el precio está formando máximos y mínimos cada vez más altos.',
+        'Entonces rompe los mínimos anteriores formando mínimos más bajos, lo que se denomina un cambio de carácter.',
       ],
       keyPoints: [
         'Señal de posible reversión de tendencia',

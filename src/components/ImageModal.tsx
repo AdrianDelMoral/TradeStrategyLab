@@ -88,7 +88,7 @@ export function ImageModal({
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-white hover:text-slate-300 transition-colors bg-black/50 rounded-full"
+            className="p-2 text-white hover:text-slate-300 transition-colors bg-black/50 rounded-full cursor-pointer"
           >
             <XIcon className="w-6 h-6" />
           </button>
@@ -101,7 +101,7 @@ export function ImageModal({
             <>
               <button
                 onClick={goToPrevious}
-                className="absolute left-2 md:left-4 z-10 p-3 bg-black/70 hover:bg-black/90 text-white rounded-full transition-all transform hover:scale-110 shadow-lg"
+                className="absolute left-2 md:left-4 z-10 p-3 bg-black/70 hover:bg-black/90 text-white rounded-full transition-all transform hover:scale-110 shadow-lg cursor-pointer"
                 style={{ top: '50%', transform: 'translateY(-50%)' }}
               >
                 <ChevronLeftIcon className="w-5 h-5 md:w-6 md:h-6" />
@@ -109,7 +109,7 @@ export function ImageModal({
               
               <button
                 onClick={goToNext}
-                className="absolute right-2 md:right-4 z-10 p-3 bg-black/70 hover:bg-black/90 text-white rounded-full transition-all transform hover:scale-110 shadow-lg"
+                className="absolute right-2 md:right-4 z-10 p-3 bg-black/70 hover:bg-black/90 text-white rounded-full transition-all transform hover:scale-110 shadow-lg cursor-pointer"
                 style={{ top: '50%', transform: 'translateY(-50%)' }}
               >
                 <ChevronRightIcon className="w-5 h-5 md:w-6 md:h-6" />

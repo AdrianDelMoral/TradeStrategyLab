@@ -13,6 +13,137 @@ import {
   BookOpenIcon,
 } from 'lucide-react'
 
+// Function to get images for "¿Cómo Funciona?" steps
+const getHowItWorksImages = (strategyId: string): string[] => {
+  const howItWorksImageMap: { [key: string]: string[] } = {
+    'fibonacci-retracement': [
+      'swing-high-low.png',
+      'fibonacci-tool.png',
+      'pullback-level.png', 
+      'buy-entry.png'
+    ],
+    'breakout-patterns': [
+      'sudden-movement.png',
+      'consolidation.png',
+      'consolidation-example.png',
+      'downside-move.png'
+    ],
+    'reversal-patterns': [
+      'opposite-direction.png',
+      'pattern-identification.png',
+      'head-shoulders.png'
+    ],
+    'elliott-wave': [
+      'five-waves.png',
+      'wave-sequence.png',
+      'wave-4-rule.png',
+      'wave-example-123.png',
+      'wave-4-pullback.png'
+    ],
+    'fair-value-gap': [
+      'find-large-candle.png',
+      'draw-rectangle.png',
+      'wick-placement.png',
+      'magnet-level.png',
+      'price-revisit.png'
+    ],
+    'candlestick-patterns': [
+      'analyze-shapes.png',
+      'engulfing-pattern.png',
+      'hammer-shooting-star.png',
+      'doji-pattern.png'
+    ],
+    'heikin-ashi': [
+      'green-uptrend.png',
+      'red-downtrend.png',
+      'body-strength.png',
+      'less-noise.png'
+    ],
+    'moon-phases': [
+      'moon-cycles.png',
+      'new-moon-bullish.png',
+      'full-moon-bearish.png'
+    ],
+    'renko': [
+      'percent-change.png',
+      'block-represents.png',
+      'parameter-settings.png',
+      'green-uptrend.png',
+      'red-downtrend.png'
+    ],
+    'harmonic-patterns': [
+      'bat-pattern.png',
+      'four-movements.png',
+      'fibonacci-shapes.png',
+      'pattern-tool.png',
+      'real-chart.png',
+      'take-position.png'
+    ],
+    'support-resistance': [
+      'bounce-future.png',
+      'support-buy.png',
+      'key-levels.png',
+      'resistance-sell.png'
+    ],
+    'momentum-indicators': [
+      'macd-indicator.png',
+      'macd-crossover.png',
+      'moving-average.png',
+      'above-bullish.png'
+    ],
+    'choch': [
+      'choch-principal-ejemplo.png',
+      'higher-highs-lows.png',
+      'change-character.png'
+    ],
+    // Otras estrategias tendrán arrays vacíos por defecto
+  }
+  
+  return howItWorksImageMap[strategyId] || []
+}
+
+// Function to get example images for specific examples
+const getExampleImage = (strategyId: string, exampleText: string): string | null => {
+  const exampleImageMap: { [key: string]: { [key: string]: string } } = {
+    'breakout-patterns': {
+      'Triángulos (ascendente, descendente, simétrico)': 'triangle-patterns.png',
+      'Rectángulos': 'rectangle-pattern.png',
+      'Cuñas': 'pattern-examples.png'
+      // 'Banderas y banderines' no tiene imagen según especificaste
+    },
+    'reversal-patterns': {
+      'Doble Techo/Suelo': 'double-top-bottom.png',
+      'Hombro-Cabeza-Hombro': 'head-shoulders-pattern.png',
+      'Triple Techo/Suelo': 'triple-pattern.png'
+    },
+    'candlestick-patterns': {
+      'Martillo/Hombre Colgado': 'hammer-hanging.png',
+      'Envolvente Alcista/Bajista': 'engulfing-patterns.png',
+      'Doji': 'doji-pattern.png',
+      'Estrella Fugaz': 'shooting-star.png'
+    },
+    'harmonic-patterns': {
+      'Patrón Gartley': 'gartley-example.png',
+      'Patrón Mariposa': 'butterfly-example.png',
+      'Patrón Murciélago': 'bat-example.png',
+      'Patrón Cangrejo': 'crab-example.png'
+    },
+    'elliott-wave': {
+      'Ondas de Impulso': 'impulse-example.png',
+      'Ondas Correctivas': 'corrective-example.png',
+      'Extensiones': 'extension-example.png'
+    },
+    'fair-value-gap': {
+      'Gap Alcista': 'bullish-gap.png',
+      'Gap Bajista': 'bearish-gap.png',
+      'Relleno de Gap': 'gap-fill.png'
+    }
+    // Otras estrategias retornarán null por defecto
+  }
+  
+  return exampleImageMap[strategyId]?.[exampleText] || null
+}
+
 // Function to get main example images for each strategy
 const getMainExampleImages = (strategyId: string): string[] => {
   const imageMap: { [key: string]: string[] } = {
@@ -119,13 +250,13 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
   }
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="w-full min-h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
       <header className="bg-slate-800/50 border-b border-slate-700/50 shadow-lg backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <button
             onClick={() => router.push('/')}
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4"
+            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4 cursor-pointer"
           >
             <ArrowLeftIcon className="w-5 h-5" />
             <span>Volver a estrategias</span>
@@ -186,12 +317,6 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
             <h2 className="text-2xl font-bold text-white">Introducción</h2>
           </div>
           <div className="flex flex-col md:flex-row gap-6 items-start">
-            <div className="flex-1">
-              <p className="text-slate-300 leading-relaxed">
-                {strategy.detailedContent.introduction}
-              </p>
-            </div>
-            
             {/* Concept Image */}
             {strategy.mainPicture && (
               <div className="md:w-80 shrink-0">
@@ -209,6 +334,12 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
                 />
               </div>
             )}
+            <div className="flex-1">
+              <p className="text-slate-300 leading-relaxed">
+                {strategy.detailedContent.introduction}
+              </p>
+            </div>
+            
           </div>
         </div>
 
@@ -265,35 +396,40 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
             ¿Cómo Funciona?
           </h2>
           <div className="space-y-6">
-            {strategy.detailedContent.howItWorks.map((step, index) => (
-              <div key={index} className="space-y-4">
-                {/* Step text */}
-                <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-semibold">
-                    {index + 1}
+            {strategy.detailedContent.howItWorks.map((step, index) => {
+              const howItWorksImages = getHowItWorksImages(strategy.id)
+              const stepImage = howItWorksImages[index]
+              
+              return (
+                <div key={index} className="space-y-4">
+                  {/* Step text */}
+                  <div className="flex gap-3">
+                    <div className="shrink-0 w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-semibold">
+                      {index + 1}
+                    </div>
+                    <p className="text-slate-300 pt-1">{step}</p>
                   </div>
-                  <p className="text-slate-300 pt-1">{step}</p>
+                  
+                  {/* Step image */}
+                  {stepImage && (
+                    <div className="ml-11 max-w-md">
+                      <Image
+                        src={`/images/strategies/${strategy.id}/${stepImage}`}
+                        alt={`${strategy.title} - Paso ${index + 1}`}
+                        width={400}
+                        height={300}
+                        className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer hover:opacity-80"
+                        onClick={() => openModal([stepImage], 0)}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
-                
-                {/* Step image */}
-                {strategy.images?.examples && strategy.images.examples[index] && (
-                  <div className="ml-11 max-w-md">
-                    <Image
-                      src={`/images/strategies/${strategy.id}/${strategy.images.examples[index]}`}
-                      alt={`${strategy.title} - Paso ${index + 1}`}
-                      width={400}
-                      height={300}
-                      className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer hover:opacity-80"
-                      onClick={() => openModal(strategy.images?.examples || [], index)}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
@@ -318,13 +454,34 @@ export function StrategyDetailPage({ params }: StrategyDetailPageProps) {
         {strategy.detailedContent.examples && (
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700/50 mb-6">
             <h2 className="text-2xl font-bold text-white mb-4">Ejemplos</h2>
-            <div className="space-y-3">
-              {strategy.detailedContent.examples.map((example, index) => (
-                <div key={index} className="flex gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0 mt-2"></div>
-                  <p className="text-slate-300">{example}</p>
-                </div>
-              ))}
+            <div className="space-y-6">
+              {strategy.detailedContent.examples.map((example, index) => {
+                const exampleImage = getExampleImage(strategy.id, example)
+                return (
+                  <div key={index} className="space-y-3">
+                    <div className="flex gap-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full shrink-0 mt-2"></div>
+                      <p className="text-slate-300">{example}</p>
+                    </div>
+                    {exampleImage && (
+                      <div className="ml-5">
+                        <Image
+                          src={`/images/strategies/${strategy.id}/${exampleImage}`}
+                          alt={`${example} - Ejemplo`}
+                          width={600}
+                          height={300}
+                          className="w-full max-w-xl rounded-lg shadow-lg cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={() => openModal([exampleImage], 0)}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
         )}
